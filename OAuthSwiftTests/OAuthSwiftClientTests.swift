@@ -81,7 +81,7 @@ class OAuthSwiftClientTests: XCTestCase {
             if let expectedJSON = expectedBodyJSONDictionary {
                 if let body = urlRequest.httpBody {
                     if let json = try? JSONSerialization.jsonObject(with: body, options: []) as? [String:String] {
-                        XCTAssertEqualDictionaries(json!, expectedJSON)
+                        XCTAssertEqualDictionaries(json, expectedJSON)
                     } else {
                         if let string = String(data: body, encoding: request.config.dataEncoding) {
                             XCTFail("Not json but string \(string)")
